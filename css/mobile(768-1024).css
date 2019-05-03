@@ -1,0 +1,204 @@
+/* Utility classes */
+
+.btn {
+	font-size: .8rem;
+	padding: .7rem 1.5rem;
+}
+
+/* HAMBURGER MENU */
+
+.menu-wrap {
+	display: inline-block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 3;
+}
+
+/* checkbox */
+
+.menu-wrap .toggler {
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	z-index: 3;
+	height: 40px;
+	width: 40px;
+	opacity: 0;
+}
+
+/* hamburger lines container */
+
+.menu-wrap .hamburger {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	height: 50px;
+	width: 50px;
+	background: rgba(199, 178, 153, 0.2);
+	padding: 0.6rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* hamburger lines */
+
+.menu-wrap .hamburger div {
+	position: relative;
+	width: 100%;
+	height: 2px;
+	background: #fff;
+	transition: all 0.4s ease-in-out;
+}
+
+.menu-wrap .hamburger div:before,
+.menu-wrap .hamburger div:after {
+	content: '';
+	position: absolute;
+	top: -10px;
+	width: 100%;
+	height: 2px;
+	background: inherit;
+}
+
+.menu-wrap .hamburger div:after { top: 10px; }
+
+/* lines animation when checkbox is checked */
+/* Rotate lines */
+.menu-wrap .toggler:checked + .hamburger > div {
+	transform: rotate(135deg);
+}
+/* Turns lines into X */
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+	top: 0;
+	transform: rotate(90deg);
+}
+/* Rotate on hover when checked */
+.menu-wrap .toggler:checked:hover + .hamburger > div {
+	transform: rotate(225deg);
+}
+
+/* menu */
+
+.menu-wrap .hamburgermenu {
+	position: absolute;
+	z-index: 1;
+	width: 100vw;
+	height: 100vh;
+	visibility: hidden;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.menu-wrap .hamburgermenu a {
+	font-size: 1.1rem;
+	display: block;
+	width: 100vw;
+	padding: .5rem;
+	color: #fff;
+	text-decoration: none;
+	transition: all 0.4s ease;
+	border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+}
+
+.menu-wrap .hamburgermenu ul li:first-child a { border-top: 1px dotted rgba(255, 255, 255, 0.2); }
+
+.menu-wrap .hamburgermenu li {
+	list-style: none;
+	text-align: center;
+}
+
+.menu-wrap .hamburgermenu > div {
+	background-color: rgba(153, 134, 117, .95);
+	width: 250vw;
+	height: 250vw;
+	display: flex;
+	flex: none;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	transform: scale(0);
+	transition: all 0.4s ease;
+}
+
+.menu-wrap .hamburgermenu > div > div {
+	text-align: center;
+	max-width: 90vh;
+	max-height: 100vh;
+	opacity: 0;
+	transition: opacity 0.4s ease 0.2s;
+}
+
+.menu-wrap .toggler:checked ~ .hamburgermenu { visibility: visible; }
+
+.menu-wrap .toggler:checked ~ .hamburgermenu > div {
+	transform: scale(1);
+	transition-duration: 0.75s;
+}
+
+.menu-wrap .toggler:checked ~ .hamburgermenu > div > div { opacity: 1; }
+
+/* NAVBAR */
+
+#navbar {
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#navbar .menu ul { display: none; }
+
+#navbar .menuicons { display: none; }
+
+/* SECTION MOBILE */
+
+#mobile { margin: 0; }
+
+#mobile .container {
+	padding: 2rem 2rem;
+	padding-bottom: 0;
+	flex-direction: column;
+}
+
+#mobile .container .hand { display: none; }
+
+#mobile .container .handmobile {
+	display: block;
+	transform: translateX(2rem);
+	width: 70%;
+}
+
+#mobile h3 {
+	margin-bottom: 0;
+	text-align: center;
+}
+
+#mobile .container p {
+	text-align: center;
+}
+
+#mobile .container .list {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+#mobile .container .list .li {
+	margin: 0.5rem 0;
+	padding: 0 4rem;
+}
+
+#mobile .list p { text-align: left; }
+
+#mobile .container .li img {
+	padding-left: 0;
+	padding-right: 2rem;
+}
+
+#mobile .container .text { margin-top: 0; }
+
